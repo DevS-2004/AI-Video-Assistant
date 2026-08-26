@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets — NEVER commit these
+.env
+.streamlit/secrets.toml
+
+# Project-specific
+downloades/
+vector_db/
+*.wav
+*.mp3
+*.mp4
+*.webm
+*.m4a
+*.ogg
+
+# Whisper model cache
+~/.cache/whisper/
+
+# HuggingFace cache
+~/.cache/huggingface/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
