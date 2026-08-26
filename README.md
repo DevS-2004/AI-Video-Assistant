@@ -3,11 +3,9 @@ title: AI Video Assistant
 emoji: 🎬
 colorFrom: purple
 colorTo: blue
-sdk: streamlit
-sdk_version: "1.35.0"
-app_file: app.py
+sdk: docker
+app_port: 7860
 pinned: false
-python_version: "3.11"
 ---
 
 # 🎬 AI Video Assistant
