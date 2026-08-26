@@ -1,3 +1,15 @@
+---
+title: AI Video Assistant
+emoji: 🎬
+colorFrom: purple
+colorTo: cyan
+sdk: streamlit
+sdk_version: "1.35.0"
+app_file: app.py
+pinned: false
+python_version: "3.11"
+---
+
 # 🎬 AI Video Assistant
 
 > Transform any YouTube video or audio file into actionable meeting intelligence — automatic transcription, AI summarisation, key decision extraction, and an interactive RAG chatbot powered by Mistral AI.
