@@ -1,14 +1,16 @@
 import streamlit as st
 import time
 import os
-from dotenv import load_dotenv
-from utils.audio_processor import process_input, process_uploaded_file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # loads .env locally; silently skipped on Streamlit Cloud
+except ImportError:
+    pass  # python-dotenv not required on Streamlit Cloud (uses st.secrets instead)
 from core.transcriber import transcribe_all
 from core.summarizer import summarize, generate_title
 from core.extractor import extract_action_items, extract_key_decisions, extract_questions
 from core.rag_engine import build_rag_chain, ask_question
-
-load_dotenv()
+from utils.audio_processor import process_input, process_uploaded_file
 
 # ── Read secrets from Streamlit Cloud (st.secrets) or fall back to .env ────────
 def get_secret(key: str, default: str = "") -> str:
