@@ -6,8 +6,9 @@ from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from core.vector_store import build_vector_store, load_vector_store, get_retriever
 
 def get_llm():
+    model = os.getenv("MISTRAL_MODEL", "open-mistral-7b")
     return ChatMistralAI(
-        model="mistral-small-latest",
+        model=model,
         mistral_api_key=os.getenv("MISTRAL_API_KEY"),
         temperature=0.3,
     )

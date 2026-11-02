@@ -1,10 +1,22 @@
+import os
+import sys
+import shutil
+import tempfile
 import yt_dlp
 from pydub import AudioSegment
-import os
-import tempfile
 
 DOWNLOAD_DIR = 'downloades'
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+
+
+from utils.ffmpeg_setup import ensure_ffmpeg
+_FFMPEG_PATH = ensure_ffmpeg()
+if _FFMPEG_PATH:
+    AudioSegment.converter = _FFMPEG_PATH
+    AudioSegment.ffmpeg = _FFMPEG_PATH
+ffprobe_path = shutil.which("ffprobe")
+if ffprobe_path:
+    AudioSegment.ffprobe = ffprobe_path
 
 
 def download_youtube_audio(url: str) -> str:
@@ -21,6 +33,10 @@ def download_youtube_audio(url: str) -> str:
         ],
         "quiet": True,
     }
+    ffmpeg_loc = shutil.which("ffmpeg") or _FFMPEG_PATH
+    if ffmpeg_loc:
+        ydl_opts["ffmpeg_location"] = os.path.dirname(ffmpeg_loc)
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info).replace(".webm", ".wav").replace(".m4a", ".wav")

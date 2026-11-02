@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
 load_dotenv()   # MUST be before any core/ imports
 
+from utils.ffmpeg_setup import ensure_ffmpeg
+ensure_ffmpeg()
+
 from utils.audio_processor import process_input
 from core.transcriber import transcribe_all
 from core.summarizer import summarize, generate_title

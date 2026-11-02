@@ -1,0 +1,17 @@
+[project]
+name = "ai-video-assistant-main"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "DevS-2004", email = "devendra@github.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+ai-video-assistant-main = "ai_video_assistant_main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"

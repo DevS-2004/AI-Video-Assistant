@@ -1,5 +1,7 @@
 import os
 import requests
+from utils.ffmpeg_setup import ensure_ffmpeg
+ensure_ffmpeg()
 from pydub import AudioSegment
 
 # Sarvam's sync STT-translate API rejects audio longer than 30s.
